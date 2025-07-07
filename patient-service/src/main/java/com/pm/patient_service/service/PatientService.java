@@ -48,7 +48,6 @@ public class PatientService {
         billingServiceGrpcClient.createBillingAccount(savedPatient.getId().toString(), savedPatient.getName(), savedPatient.getEmail());
 
         kafkaProducer.sendEvent(savedPatient);
-
         return PatientMapper.toDto(savedPatient);
     }
 
